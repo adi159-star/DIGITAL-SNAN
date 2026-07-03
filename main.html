@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Snan Prayagraj | Virtual Holy Dip Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        :root {
+            --primary: #FF9933; /* Saffron */
+            --primary-dark: #cc7a00;
+            --secondary: #8B0000; /* Deep Maroon */
+            --text: #333333;
+            --light-bg: #FFF8F0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light-bg);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section - UPDATED IMAGE HERE */
+        header {
+            /* Added the new image URL below */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.travanya.com/uploads/2025/08/treveni-sangam-prayagraj.webp');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features / Process */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 153, 51, 0.2);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 10%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="fas fa-om"></i> DigitalSnan
+        </div>
+        <div class="nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#packages">Packages</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact" class="cta-btn" onclick="openModal()">Book Now</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <h1>Connect with the Divine from Anywhere</h1>
+            <p>Experience the sanctity of the Triveni Sangam. We perform the Holy Dip Ritual on your behalf and share the divine moment with you.</p>
+            <a href="#packages" class="cta-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Start Your Spiritual Journey</a>
+        </div>
+    </header>
+
+    <section id="how-it-works" class="section">
+        <div class="section-title">
+            <h2>How Digital Snan Works</h2>
+            <p>A simple 3-step process to bridge the physical distance.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="icon-box"><i class="fas fa-upload"></i></div>
+                <h3>1. Upload Photo</h3>
+                <p>Submit a photo of yourself or your loved ones along with your Name and Gotra (optional).</p>
+            </div>
+            <div class="process-card">
+                <div class="icon-box"><i class="fas fa-water"></i></div>
+                <h3>2. The Sacred Dip</h3>
+                <p>we perform the ritual immersion of the photo in the Sangam.</p>
+            </div>
+            <div class="process-card">
+                <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+                <h3>3. Receive Blessings</h3>
+                <p>Within a week , receive a high-definition video of the ritual via Instagram or Email.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="section" style="background-color: white;">
+        <div class="section-title">
+            <h2>Select Our Seva</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic Plan</h3>
+                <div class="price">₹99/- </div>
+                <p><strong>per person</strong></p>
+                <ul class="features-list">
+                    <li>Symbolic Photo Dip at Sangam</li>
+                    <li>HD Video sent via Instagram</li>
+                    <li>Video Delivery within a week</li>
+                </ul>
+                <a href="https://forms.gle/tsyoNpmhfSBuWKEp9" target="_blank"><button class="cta-btn">Select Package</button></a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div style="background:var(--primary); color:white; position:absolute; top:-10px; right:20px; padding:5px 15px; border-radius:15px; font-size:0.8rem;">POPULAR</div>
+                <h3>Best Value Plan</h3>
+                <div class="price">₹75/-</div>
+                <p><strong>per person for more than 3 people</strong></p>
+                <ul class="features-list">
+                    <li>Symbolic Photo Dip at Sangam</li>
+                    <li> HD Video sent at Instagram</li>
+                    <li>Video Dilevery within a week</li>
+                </ul>
+                <a href="https://forms.gle/tsyoNpmhfSBuWKEp9" target="_blank"><button class="cta-btn">Select Package</button></a>
+            </div>
+
+            <!-- <div class="pricing-card">
+                <h3>Divine Prasad</h3>
+                <div class="price">₹5,100</div>
+                <p>Full Ritual + Home Delivery</p>
+                <ul class="features-list">
+                    <li>All Sankalp Snan features</li>
+                    <li><strong>Bottle of Sangam Jal</strong></li>
+                    <li>Prasad from Bade Hanuman Ji</li>
+                    <li>Raksha Sutra (Holy Thread)</li>
+                    <li>Global Shipping Included</li>
+                </ul>
+                <button class="cta-btn" onclick="openModal('Divine Prasad')">Select Package</button>
+            </div> -->
+        </div>
+    </section>
+
+    <section>
+        
+
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <title>WhatsApp Link for Digital Snan</title> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        /* Style for the WhatsApp Button */
+        .whatsapp-btn {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebd56;
+        }
+
+        /* Simple SVG Icon for WhatsApp */
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/919794376889" class="whatsapp-btn" target="_blank">
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.7c.981.545 2.051.849 3.19.849 3.181 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.767-5.767-5.767zm8.265 5.767c0 4.575-3.701 8.276-8.265 8.276-1.516 0-2.935-.407-4.167-1.115l-4.665 1.224 1.248-4.542c-.786-1.282-1.242-2.775-1.242-4.372 0-4.575 3.701-8.276 8.265-8.276s8.265 3.701 8.265 8.276z"/>
+        </svg>
+        Chat on WhatsApp
+    </a>
+
+</body>
+</html>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Why Devotees Trust Us</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-card" style="background: var(--light-bg); border: none;">
+                <i class="fas fa-hand-holding-heart" style="color:var(--secondary); font-size:2rem; margin-bottom:10px;"></i>
+                <h4>Authentic Rituals</h4>
+                <p>No stock footage. Every video is recorded live specifically for you with your photo clearly visible.</p>
+            </div>
+            <div class="process-card" style="background: var(--light-bg); border: none;">
+                <i class="fas fa-user-secret" style="color:var(--secondary); font-size:2rem; margin-bottom:10px;"></i>
+                <h4>Privacy First</h4>
+                <p>Your photos are used strictly only for the ritual .</p>
+            </div>
+            <div class="process-card" style="background: var(--light-bg); border: none;">
+                <i class="fas fa-globe-americas" style="color:var(--secondary); font-size:2rem; margin-bottom:10px;"></i>
+                <h4>Global Service</h4>
+                <p>Trusted by NRIs in USA, UK, Canada, and Australia who cannot travel to India.</p>
+            </div>
+        </div>
+    </section>
+    <section>
+
+    <body>
+
+    <!-- <section class="rating-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="overall-rating">
+                <span class="big-score">4.8</span>
+                <div class="stars">★★★★★</div>
+                <p class="review-count">Based on 1,200+ Reviews</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="card-header">
+                        <span class="user-name">Amit Verma</span>
+                        <span class="stars-small">★★★★★</span>
+                    </div>
+                    <p class="review-text">"Great Experience! "</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="card-header">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <span class="stars-small">★★★★★</span>
+                    </div>
+                    <p class="review-text">""</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="card-header">
+                        <span class="user-name">Rahul K.</span>
+                        <span class="stars-small">★★★★☆</span>
+                    </div>
+                    <p class="review-text">"I could'nt get leave from my job. DIGITALSNAN helped me in this holy ocassion."</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>what is DigitalSnan?</summary>
+                    <div class="faq-content">
+                        <p>Digital Snan is a service where our team physically performs Ganga snan (holy bath) in Prayagraj on your behalf using your uploaded photo. We print your photo, carry it to the sacred ghats, perform the snan ritual in the actual Ganga river, and send you a personalized video within a week.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is my data safe with DigitalSnan?</summary>
+                    <div class="faq-content">
+                        <p>Yes, we use 256-bit SSL encryption to ensure all your personal data and browsing history remain private and secure.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do i receive my snan video?</summary>
+                    <div class="faq-content">
+                        <p>You will receive the personalized video and photos via Instagram and email. The video will clearly show your photo and mention your name during the ritual. Standard delivery is within a week of booking confirmation.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is my photo safe and private?</summary>
+                    <div class="faq-content">
+                        <p>Absolutely. Your photos are used only for your ritual and to create your personalized video. We respect your privacy completely, never share photos publicly, and responsibly dispose of printed photos after the ritual is completed.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer id="contact">
+        <h3>Digital Snan Prayagraj</h3>
+        <p>Connecting souls to the Holy Ganga, digitally.</p>
+        <br>
+         <a href="mailto:digitalsnan70@gmail.com" target="_blank" style="text-decoration: none; color: white;">Email Id: digitalsnan70@gmail.com </a>
+       <br>
+        <a href="https://www.instagram.com/digitalsnan.70/" target="_blank"  style="color: white; text-decoration: none;"
+        s>Instagram Id: digitalsnan.70 </a>
+        <p></p>
+        <br>
+        <small>&copy; 2026 Digital Snan Services. All rights reserved. Not affiliated with the Govt of UP.</small>
+    </footer>
+
+    <!-- <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 style="margin-bottom: 20px; color: var(--secondary);">Book Your Snan</h3>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <label>Selected Package</label>
+                <input type="text" id="selectedPackage" readonly>
+                
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter full name" required>
+                
+                <label>WhatsApp Number (for video)</label>
+                <input type="tel" placeholder="+91 99999 99999" required>
+                
+                <label>Upload Photo</label>
+                <input type="file" accept="image/*" required>
+                
+                <button type="submit" class="submit-btn">Proceed to Payment</button>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #666; text-align: center;">Secure payment via Razorpay/Stripe</p>
+            </form>
+        </div>
+    </div> -->
+
+    <!-- <script>
+        function openModal(packageName = 'Basic Plan') {
+            document.getElementById('selectedPackage').value = packageName;
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function handleBooking(e) {
+            e.preventDefault();
+            alert("This is a demo! In a real site, this would redirect to a payment gateway.");
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('bookingModal')) {
+                closeModal();
+            }
+        }
+    </script> -->
+</body>
+</html>
